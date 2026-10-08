@@ -1,0 +1,14 @@
+package Day2;
+
+// static method can't be overridden this is called as method Hiding
+public class MethodHidingChild extends MethodHiding{
+    void show(){
+        System.out.println("From child");
+    }
+    public static void main() {
+        MethodHiding m = new MethodHidingChild();
+        MethodHiding m2 = new MethodHiding();
+        m2.show();
+        m.show();
+    }
+}
