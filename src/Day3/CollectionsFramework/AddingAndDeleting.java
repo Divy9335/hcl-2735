@@ -19,7 +19,7 @@ public class AddingAndDeleting {
         ls.remove(1);
         System.out.println("Deleting a data and then printing the list -- "+ls);
 
-        ls.set(1,24);
+        ls.set(1,24); //
         System.out.println("Setting data at index one -- "+ls);
 
         System.out.println("Checking is list empty or not -- "+ls.isEmpty());
