@@ -13,6 +13,7 @@ public class AddingAndDeleting {
         for(int i= 0;i<n;i++){
             ls.add(sc.nextInt());
         }
+
         System.out.println("Printing Data after insertion -- " + ls);
 
         ls.remove(1);
@@ -25,6 +26,10 @@ public class AddingAndDeleting {
 
         System.out.println("Checking that data is inside the list or not - "+ls.contains(10));
 
+        ls.clear();
+        System.out.println("After clearing the list -- "+ls);
+        ls.add(2);
+        System.out.println(ls);
 
     }
 }
