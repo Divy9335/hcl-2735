@@ -1,8 +1,6 @@
 package Day4;
 
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class QueueUsingLinkedListAndArrayDeque {
     void main() {
@@ -25,6 +23,29 @@ public class QueueUsingLinkedListAndArrayDeque {
         System.out.println("Deleting front value of queue : "+dq);
         System.out.println("Removed value is : "+val2);
 
+        System.out.println();
+        System.out.println("----------Implementing Stack-----------");
+        ArrayDeque<Integer> st = new ArrayDeque<>();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+
+        System.out.println(st);
+        System.out.println(st.pop());
+
+    }
+
+    class Solution {
+        class Pair{
+            long diff;
+            long positiveDiff;
+            int ind;
+            Pair(long diff,long posDiff, int ind){
+                this.diff = diff;
+                this.positiveDiff = Math.abs(posDiff);
+                this.ind = ind;
+            }
+        }
 
     }
 }
