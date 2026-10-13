@@ -1,6 +1,6 @@
 package HCL_Assessment_2_COREJAVA_230032153007_DivySingh.LibraryItemClasses;
 
-public abstract class DVD {
+public abstract class DVDInfo {
     private String dvdName;
     private int dvdCount;
 

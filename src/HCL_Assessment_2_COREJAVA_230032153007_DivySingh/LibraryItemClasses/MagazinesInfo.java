@@ -1,6 +1,6 @@
 package HCL_Assessment_2_COREJAVA_230032153007_DivySingh.LibraryItemClasses;
 
-public abstract class Magazines {
+public abstract class MagazinesInfo {
     private String magazineName;
     private int countOfMagazine;
 

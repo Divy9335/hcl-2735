@@ -2,11 +2,12 @@ package HCL_Assessment_2_COREJAVA_230032153007_DivySingh.AdminControl;
 
 public interface Admin {
     void addBook(int id, String bookName, int bookCount);
-    void addMagazine(int id, String magazineName, int magazineCount);
+    void addMagazine(String magazineName, int magazineCount);
     void register(int id, String studentName);
     void deleteBook(int bookId);
-    void issueBook(int bookId, int studentId);
+    boolean issueBook(int bookId, int studentId);
     void showBooks();
+    void showStudents();
 }
 
 

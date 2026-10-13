@@ -1,10 +1,11 @@
-package HCL_Assessment_2_COREJAVA_230032153007_DivySingh;
+package HCL_Assessment_2_COREJAVA_230032153007_DivySingh.Operation;
+
 
 import HCL_Assessment_2_COREJAVA_230032153007_DivySingh.LibraryItemsManagement.LibraryManager;
 
 import java.util.Scanner;
 
-public class Library extends LibraryManager {
+class Library extends LibraryManager {
     static void main() {
         Scanner sc = new Scanner(System.in);
         System.out.println("---------------This is Library Management System ---------");
@@ -13,8 +14,10 @@ public class Library extends LibraryManager {
         System.out.println("2 - For Deleting books");
         System.out.println("3 - For Accessing books");
         System.out.println("4 - For Assigning magazine");
+        System.out.println("5 - See no. of Students having books borrowed");
         System.out.println("0 - For exiting");
-        LibraryManager admin = new Library();
+
+        Library manager = new Library();
 
         boolean flag = true;
         while(flag){
@@ -29,18 +32,31 @@ public class Library extends LibraryManager {
                     String bookName = sc.nextLine();
                     System.out.print("Enter the book count : ");
                     int countOfBooks = sc.nextInt();
-                    admin.addBook(id,bookName, countOfBooks);
+                    manager.addBook(id,bookName,countOfBooks);
                     break;
                 }
                 case 2 : {
                     System.out.print("Enter book id which you want to remove : ");
                     int id = sc.nextInt();
-                    admin.deleteBook(id);
+                    manager.deleteBook(id);
                     break;
                 }
                 case 3 :{
-                    System.out.println("Showing books - ");
-                    admin.showBooks();
+                    manager.showBooks();
+                    break;
+                }
+                case 4 :{
+                    System.out.print("Enter student id - ");
+                    int sId = sc.nextInt();
+                    System.out.print("Enter book id - ");
+                    int bId = sc.nextInt();
+                    boolean b = manager.issueBook(bId,sId);
+                    if(b) manager.deleteBook(bId);
+                    break;
+                }
+                case 5 :{
+                    manager.showStudents();
+                    break;
                 }
                 default:
                     System.out.println("Exiting the System");
