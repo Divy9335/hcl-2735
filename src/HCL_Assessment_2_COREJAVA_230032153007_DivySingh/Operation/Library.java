@@ -55,6 +55,7 @@ class Library extends LibraryManager {
                     break;
                 }
                 case 5 :{
+                    System.out.println("--- Books assigned to students are ---");
                     manager.showStudents();
                     break;
                 }
