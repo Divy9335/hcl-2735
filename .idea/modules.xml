@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HCL_Training.iml" filepath="$PROJECT_DIR$/HCL_Training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringCoreFundamentals.iml" filepath="$PROJECT_DIR$/.idea/SpringCoreFundamentals.iml" />
     </modules>
   </component>
 </project>
