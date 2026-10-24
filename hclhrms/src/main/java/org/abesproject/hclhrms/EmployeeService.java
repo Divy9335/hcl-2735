@@ -34,4 +34,13 @@ public class EmployeeService {
         temList.add(new Employee("fullstack engineer","Divy@gmail.com",1,"Mridul yash","Backend"));
         return emp.addEmpBulk(temList);
     }
+
+    public String deleteEmpById(){
+        return emp.deleteEmpById(2300);
+    }
+
+    public String updateByEmpId(){
+        Employee temEmp = new Employee("junior engineer","xyz@gmail.com",200,"Aman Singh","Ai Engineer");
+        return emp.updateByEmpId(2300,temEmp);
+    }
 }

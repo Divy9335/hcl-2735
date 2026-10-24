@@ -3,7 +3,9 @@ package org.abesproject.hclhrms.controller;
 import org.abesproject.hclhrms.EmployeeService;
 import org.abesproject.hclhrms.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,5 +35,14 @@ public class EmployeeController {
     @GetMapping("/addinbulk")
     public String addEmpInBulk(){
         return empSer.addEmpInBulk();
+    }
+    @DeleteMapping("/deletebyid")
+    public String deleteById(){
+        return empSer.deleteEmpById();
+    }
+
+    @PutMapping("/updatebyid")
+    public String updateById(){
+        return empSer.updateByEmpId();
     }
 }

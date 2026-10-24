@@ -49,4 +49,31 @@ public class EmployeeRepoImp implements EmployeeRepo{
         empList.addAll(ls);
         return "Employee added in bulk";
     }
+
+    @Override
+    public String deleteEmpById(int id) {
+        for(Employee emp : empList){
+            if(emp.getEmp_id() == id){
+                empList.remove(emp);
+                return "Employee with emp_id "+emp.getEmp_id()+" is removed";
+            }
+        }
+        return "No employee found with emp_id "+id;
+    }
+
+    @Override
+    public String updateByEmpId(int id, Employee newEmp) {
+        for(Employee emp : empList){
+            if(emp.getEmp_id()==id){
+                emp.setEmp_id(newEmp.getEmp_id());
+                emp.setDesignation(newEmp.getDesignation());
+                emp.setEmail(newEmp.getEmail());
+                emp.setEmp_name(newEmp.getEmp_name());
+                emp.setWork_stack(newEmp.getWork_stack());
+                
+                return "Employee with emp_id "+id+" is updated";
+            }
+        }
+        return "No employee with eimp_id "+id+" is found";
+    }
 }

@@ -13,4 +13,7 @@ public interface EmployeeRepo {
     Employee getEmpById(long id);
     String addEmpBulk(List<Employee> ls);
 
+    String deleteEmpById(int id);
+    String updateByEmpId(int id, Employee newEmp);
+
 }
