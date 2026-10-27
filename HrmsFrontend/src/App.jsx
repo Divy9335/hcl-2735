@@ -12,8 +12,7 @@ const App = () => {
 
   async function fetchData(){
     try{
-      const url = "http://localhost:8080/";
-      const data = await fetch(url);
+      const data = await fetch("/v1/user");
       const parseData = await data.text();
       setData(parseData);
     }catch(e){

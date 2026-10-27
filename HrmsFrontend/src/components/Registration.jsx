@@ -1,24 +1,52 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Registration = () => {
-    const [formData, setFormData] = useState({name:'', empid:'', email:'', designation:'', techStack:'',password:'',remember:false})
-    function sendData(){
-
-    }
+    const [formData, setFormData] = useState({empid:'', name:'', techStack:'', designation:'', email:'',password:''})
+    const navigate = useNavigate();
 
     function changeHandler(event){
         setFormData(prevData=>{
         return {
-            ...formData,
+            ...prevData,
             [event.target.name] : event.target.type === "checkbox" ? event.target.checked : event.target.value,
         }
         })
         
     }
-    function submitHandler(event){
-        event.preventDefault();
-        console.log(formData)
+    
+
+async function submitHandler(e){
+    try{
+        e.preventDefault();                
+        const server = await fetch("http://localhost:8080/v1/user/addEmp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        console.log(server);
+
+        const responseText = await server.text();
+
+        if (!server.ok) {
+            alert(`Error ${server.status}: ${responseText}`);
+            return;
+        }else{
+            navigate('/login');
+        }
+        
+        alert(responseText);
+
+    }catch(error){
+    console.log(error)
     }
+}
+
+
+
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 p-10">
@@ -57,7 +85,7 @@ const Registration = () => {
                     <div className="flex items-center justify-between">
                         <div className="flex items-start">
                             <div className="flex items-center h-5">
-                                <input id="remember" checked={formData.remember} onChange={changeHandler} name='remember' aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
+                                <input id="remember" name='remember' aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
                             </div>
                             <div className="ml-3 text-sm">
                                 <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
