@@ -24,6 +24,14 @@ public class EmployeeController {
         return empService.addEmployee(emp);
     }
 
+    @PostMapping("/login")
+    public String login(@RequestParam("empid") long empid, @RequestParam("password") String password){
+        if(empService.isLoggedIn(empid,password)){
+            return "Employee is Logged in";
+        }
+        return "Employee not found";
+    }
+
     @GetMapping("/getAll")
     public List<Employee> getAllEmp(){
         return empService.getAllEmp();

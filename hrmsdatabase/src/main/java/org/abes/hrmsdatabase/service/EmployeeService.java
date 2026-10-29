@@ -30,6 +30,9 @@ public class EmployeeService {
         return empRepo.findById(empId).orElse(null);
     }
 
+    public boolean isLoggedIn(long emp_id, String password){
+        return empRepo.existsByPasswordAndEmpid(password,emp_id);
+    }
 
     public String deleteById(long id){
         Employee tempEmp = findById(id);
